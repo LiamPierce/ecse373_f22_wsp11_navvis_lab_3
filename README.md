@@ -1,5 +1,5 @@
 
-#How to launch new navvis
+# How to launch new navvis
 
 ```
 roslaunch navvis navvis.launch bag_file:=/path/to/bag-file rviz_config_type:=no_track
@@ -7,7 +7,7 @@ roslaunch navvis navvis.launch bag_file:=/path/to/bag-file rviz_config_type:=no_
 
 rviz_config_type can be varied between no_track, track, no_map, and original. This new navvis launcher can launch the old robot and the new seamlessly.
 
-#How to launch old navvis_description
+# How to launch old navvis_description
 
 To run the node with the default parameters, run the following.
 ```
