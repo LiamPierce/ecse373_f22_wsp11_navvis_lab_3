@@ -4,10 +4,16 @@
   <arg name="use_robot_state_publisher" default="true" />
 
   <arg name="use_sim_time" default="true" />
+  <arg name="bag_file" />
+
+  <arg name="rviz_config_type" default="track" />
 
   <include file="$(find navvis_description)/launch/navvis.launch">
     <arg name="file" value="$(find navvis)/urdf/navvis.xacro" />
+    <arg unless="$(eval arg('rviz_config_type') == 'original')" name="rviz_config" value="$(find navvis)/config/$(arg rviz_config_type).rviz" />
   </include>
+
+  <node unless="$(eval arg('rviz_config_type') == 'original')" pkg="rosbag" type="play" name="rosbag_run_glennan" args="--clock $(arg bag_file) /tf_trajectory:=/tf" />
 
   <param if="$(arg use_sim_time)" name="use_sim_time" type="bool" value="true" />
 
