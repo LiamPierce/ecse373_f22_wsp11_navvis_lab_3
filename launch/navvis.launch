@@ -1,0 +1,14 @@
+<launch>
+  <arg name="use_xacro" default="true" />
+  <arg name="use_joint_state_publisher_gui" default="true" />
+  <arg name="use_robot_state_publisher" default="true" />
+
+  <arg name="use_sim_time" default="true" />
+
+  <include file="$(find navvis_description)/launch/navvis.launch">
+    <arg name="file" value="$(find navvis)/urdf/navvis.xacro" />
+  </include>
+
+  <param if="$(arg use_sim_time)" name="use_sim_time" type="bool" value="true" />
+
+</launch>
